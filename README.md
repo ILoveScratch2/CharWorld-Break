@@ -1,2 +1,3 @@
 # CharWorld-Break
-Fuck character world control system
+
+战无不胜的毛泽东思想万岁！ 伟大光荣正确的中国共产党万岁！伟大的中华人民共和国万岁！伟大的中国人民万岁！世界人民大团结万岁
