@@ -7,6 +7,9 @@
 #include <TlHelp32.h>
 #include <iostream>
 #pragma comment(lib, "User32.lib")
+
+#define VERSION "0.8.1"
+
 using namespace std;
 
 // 全局变量
@@ -214,12 +217,12 @@ DWORD WINAPI conIn(LPVOID lpParameter)
 	while (!g_bExitProgram)
 	{
 		int ini=0;
-		cout << "欢迎使用CharWorld-Breaker\n本程序开源，使用GPL 3.0协议\n使用说明：挂在后台，老师控屏后自动窗口化控屏窗口，\n注意：使用中黑色控制台请勿关闭，如需关闭程序请关闭黑色控制台\n";
-		cout << "\n\n\n\n\n[1]项目主页\n[2](" << (topMost?"关闭":"开启") << ")窗口置顶\n[3]" << (conProc?"开启":"关闭") << "进程劫持(阻止启动)\n[4]" << (blockShut?"关闭":"开启") << "关机阻止\n[5]解锁键盘\n[6]退出程序\n>";
+		cout << "欢迎使用CharWorld-Breaker " <<  VERSION<< "\n本程序开源，使用GPL 3.0协议\n使用说明：挂在后台，老师控屏后自动窗口化控屏窗口，\n注意：使用中黑色控制台请勿关闭，如需关闭程序请关闭黑色控制台\n";
+		cout << "\n\n\n\n\n[1]项目主页\n[2](" << (topMost?"关闭":"开启") << ")窗口置顶\n[3]" << (conProc?"开启":"关闭") << "进程劫持(阻止启动)\n[4]" << (blockShut?"关闭":"开启") << "关机阻止\n[5]解锁键盘\n[6]关于\n[7]退出程序\n>";
 		cin >> ini;
 		if (ini==1)
 		{
-			system("start https://github.com/ILoveScratch2/");
+			system("start https://github.com/ILoveScratch2/CharWorld-Break/");
 		}
 		else if (ini==2)
 		{
@@ -276,7 +279,18 @@ DWORD WINAPI conIn(LPVOID lpParameter)
 		{
 			UnlockKeyboard();
 		}
-		else if (ini==6)
+		else if (ini == 6)
+		{
+			system("cls");
+			cout << "CharWorld-Breaker 版本 " << VERSION << "\n";
+			cout << "版权所有 (C) 2025 WenDao\n";
+			cout << "本程序基于GNU GENERAL PUBLIC LICENSE 3.0 (GPL 3.0)协议开源\n";
+			cout << "按任意键返回主菜单...";
+			cin.ignore();
+			cin.get();
+			system("cls");
+		}
+		else if (ini==7)
 		{
 			g_bExitProgram = true;
 			PostMessage(hHost, WM_EXIT_PROGRAM, 0, 0);
